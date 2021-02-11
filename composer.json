@@ -1,0 +1,26 @@
+{
+    "name": "balazaigo/ticketingsystem",
+    "description": "Simple Ticketing System",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "BalaMuruga",
+            "email": "bala@zaigoinfotech.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Zaigo\\TicketingSystem\\": "src"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Zaigo\\TicketingSystem\\ZaigoTicketingSystemServiceProvider"
+            ]
+        }
+    }
+}

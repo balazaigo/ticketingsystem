@@ -1,0 +1,41 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+class CreateZaigoTickets extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::create('zaigo_tickets', function (Blueprint $table) {
+            $table->id();
+            $table->string('name');
+            $table->tinyInteger('status')->default(config('zaigoticket.status.open'));
+            $table->timestamp('ticket_arised_at');
+            $table->timestamp('ticket_closed_at')->nullable();
+            $table->string('ticked_id')->nullable();
+            $table->text('ticket_description')->nullable();
+            $table->unsignedBigInteger('zaigoticketable_id');
+            $table->string('zaigoticketable_type');
+            $table->unsignedBigInteger('zaigoclosable_id');
+            $table->string('zaigoclosable_type');
+            $table->timestamps();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::dropIfExists('zaigo_tickets');
+    }
+}
